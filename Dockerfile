@@ -26,13 +26,14 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     && conda init zsh
 
 # tmux 256color settings
-RUN echo 'set -g default-terminal "screen-256color"' > ~/.tmux.conf
+RUN echo -e 'set -g default-terminal "screen-256color"\nunbind C-b\nset-option -g prefix C-z\nbind-key C-z send-prefix' > ~/.tmux.conf
 
 # install vs code-server
-RUN curl -fsSL https://code-server.dev/install.sh | sh# jupyter lab settings
+RUN curl -fsSL https://code-server.dev/install.sh | sh
 
+# jupyter lab settings + epc and virtualenv for emacs
 RUN conda install -y nodejs nb_conda
-RUN pip install ipywidgets
+RUN pip install ipywidgets epc virtualenv
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 # jupyter password settings
