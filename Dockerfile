@@ -25,8 +25,8 @@ RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master
     && wget -O ~/.zshrc https://raw.githubusercontent.com/jinhanpark/dotfiles/master/zshrc \
     && conda init zsh
 
-# tmux 256color settings
-RUN echo -e 'set -g default-terminal "screen-256color"\nunbind C-b\nset-option -g prefix C-z\nbind-key C-z send-prefix' > ~/.tmux.conf
+# tmux 256color settings and prefix key change
+RUN echo -e 'set -g default-terminal "screen-256color"\nunbind C-b\nset-option -g prefix C-q\nbind-key C-q send-prefix' > ~/.tmux.conf
 
 # install vs code-server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
