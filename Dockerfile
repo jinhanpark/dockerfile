@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y \
     tmux \
     language-pack-en
 
-# set time zone
-RUN set TZ "KST"
-
 # set locale
 RUN locale-gen en_US.utf8 \
     && update-locale \
