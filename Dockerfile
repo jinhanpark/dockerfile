@@ -20,7 +20,7 @@ RUN locale-gen en_US.utf8 \
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
     && wget -O ~/.emacs https://raw.githubusercontent.com/jinhanpark/dotfiles/master/emacs \
     && wget -O ~/.zshrc https://raw.githubusercontent.com/jinhanpark/dotfiles/master/zshrc \
-    && conda init zsh
+    && conda init zsh && conda init bash
 
 # tmux 256color settings and prefix key change
 RUN echo -e 'set -g default-terminal "screen-256color"\nunbind C-b\nset-option -g prefix C-q\nbind-key C-q send-prefix' > ~/.tmux.conf
